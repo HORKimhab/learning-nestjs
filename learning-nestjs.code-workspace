@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"extensions": {
+		"recommendations": [
+			"imgildev.vscode-nestjs-generator", 
+			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
+			"christian-kohler.npm-intellisense",
+			"imgildev.vscode-nestjs-swagger-snippets",
+			"steoates.autoimport",
+			"eamodio.gitlens",
+			"fuhidev.vscode-nesttypeorm",
+			"aaron-bond.better-comments",
+			"donjayamanne.githistory"
+		]
+	}
+}
