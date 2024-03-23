@@ -8,3 +8,5 @@ Resource:
 - https://www.youtube.com/watch?v=8_X0nSrzrCw
 - https://www.udemy.com/course/master-nestjs-the-javascript-nodejs-framework
 - https://www.udemy.com/course/nestjs-the-complete-developers-guide
+
+#### Note: nestjssame45
