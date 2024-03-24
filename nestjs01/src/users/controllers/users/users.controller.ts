@@ -3,6 +3,7 @@ import { Body, Controller, Get, HttpException, HttpStatus, Param, ParseBoolPipe,
 from '@nestjs/common';
 import { Request, Response, response } from 'express';
 import { CreateUserDto } from 'src/users/dtos/CreateUser.dto';
+import { ValidateCreateUserPipe } from 'src/users/pipes/validate-create-user.pipe';
 import { UsersService } from 'src/users/services/users/users.service';
 
 @Controller('users')
@@ -45,8 +46,9 @@ export class UsersController {
     //     response.send('Created');        
     // }
     @UsePipes(new ValidationPipe())
-    createUser(@Body() userData: CreateUserDto){
-        console.log(userData);
+    // createUser(@Body() userData: CreateUserDto){
+    createUser(@Body(ValidateCreateUserPipe) userData: CreateUserDto){
+        console.log(userData.age.toPrecision());
         return this.userService.createUser(userData);
     }
 
