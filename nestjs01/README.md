@@ -2,7 +2,7 @@
 
 ## Resource
 
-- Project Name: `nestjs-01`
+- Project Name: `nestjs01`
 
 - NestJS Crash Course: https://www.youtube.com/watch?v=xzu3QXwo1BU&list=PL_cUvD4qzbkw-phjGK2qq0nQiG6gw1cKK
 - Learn Next: https://youtu.be/xzu3QXwo1BU?list=PL_cUvD4qzbkw-phjGK2qq0nQiG6gw1cKK&t=1970
