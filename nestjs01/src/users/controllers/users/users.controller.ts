@@ -1,19 +1,22 @@
 import { Body, Controller, Get, HttpException, HttpStatus, Param, ParseBoolPipe, ParseIntPipe, Post, Query, 
-    Req, Res, UsePipes, ValidationPipe } 
+    Req, Res, UseGuards, UsePipes, ValidationPipe } 
 from '@nestjs/common';
 import { Request, Response, response } from 'express';
 import { CreateUserDto } from 'src/users/dtos/CreateUser.dto';
+import { AuthGuard } from 'src/users/guards/auth/auth.guard';
 import { ValidateCreateUserPipe } from 'src/users/pipes/validate-create-user.pipe';
 import { UsersService } from 'src/users/services/users/users.service';
 
 @Controller('users')
+// Apply for all users controller method
+// @UseGuards(AuthGuard)
+
 export class UsersController {
 
-    constructor(private userService: UsersService){
-        
-    }
+    constructor(private userService: UsersService){}
 
     @Get()
+    @UseGuards(AuthGuard)
     // getUsers(@Query('sortDesc', ParseBoolPipe) sortDesc: boolean){
     //     console.log(sortDesc);
     //     return {username: 'HKimahb', email: 'kimhab.zeecode@gmail.com'};
