@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../../Project/JVGA/SampleForQiita"
 		}
 	],
 	"extensions": {
