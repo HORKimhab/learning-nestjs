@@ -1,4 +1,4 @@
-# nestjs-01
+# nestjs-02
 
 ## Resource
 
@@ -7,8 +7,6 @@
 - Title: Nestjs, MySQL and TypeORM Crash Course
 
 - NestJS Crash Course: https://www.youtube.com/watch?v=W1gvIw0GNl8&list=PL_cUvD4qzbkw-phjGK2qq0nQiG6gw1cKK&index=2
-- Learn Next: https://youtu.be/W1gvIw0GNl8?list=PL_cUvD4qzbkw-phjGK2qq0nQiG6gw1cKK&t=3586
-- Test
 
 ## Installation
 
