@@ -7,9 +7,10 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
+      autoSchemaFile: 'src/schema.ggl',
     }),
   ],
-  controllers: [], 
-  providers: [UserResolver]
+  controllers: [],
+  providers: [UserResolver],
 })
 export class AppModule {}
