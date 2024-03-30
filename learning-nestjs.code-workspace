@@ -13,7 +13,8 @@
 			"fuhidev.vscode-nesttypeorm",
 			"aaron-bond.better-comments",
 			"donjayamanne.githistory",
-			"imgildev.vscode-nestjs-snippets-extension"
+			"imgildev.vscode-nestjs-snippets-extension",
+			"graphql.vscode-graphql"
 		]
 	}
 }
