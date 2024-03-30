@@ -1,8 +1,17 @@
-import { Args, Int, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Int,
+  Parent,
+  Query,
+  ResolveField,
+  Resolver,
+} from '@nestjs/graphql';
 import { User } from '../models/User';
 import { mockUsers } from 'src/__mocks__/mockUsers';
+import { UserSetting } from '../models/UserSetting';
+import { mockUserSettings } from 'src/__mocks__/mockUserSettings';
 
-@Resolver()
+@Resolver(() => User)
 export class UserResolver {
   @Query(() => User)
   getUser() {
@@ -21,5 +30,10 @@ export class UserResolver {
   @Query(() => [User])
   getUsers() {
     return mockUsers;
+  }
+
+  @ResolveField(() => UserSetting, { name: 'settings', nullable: true })
+  getUserSettings(@Parent() user: User) {
+    return mockUserSettings.find((setting) => setting.userId === user.id);
   }
 }
