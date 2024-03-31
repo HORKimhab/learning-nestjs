@@ -1,3 +1,4 @@
+
 import {
   Args,
   Int,
@@ -11,6 +12,7 @@ import { User } from '../models/User';
 import { mockUsers } from 'src/__mocks__/mockUsers';
 import { UserSetting } from '../models/UserSetting';
 import { mockUserSettings } from 'src/__mocks__/mockUserSettings';
+import { CreateUserInput } from '../models/CreateUserInput';
 
 export let incrementtalId = 3; 
 @Resolver(() => User)
@@ -40,9 +42,15 @@ export class UserResolver {
   }
 
   @Mutation(() => User)
+
+    // Method 1 without input field 
+    // createUser(
+    //   @Args('username') username: string, 
+    //   @Args('displayName', { nullable: true}) displayName: string)
     createUser(
-      @Args('username') username: string, 
-      @Args('displayName', { nullable: true}) displayName: string){
+      @Args('createUserData') createUserData: CreateUserInput)
+    {
+    const { username, displayName } = createUserData; 
     const newUser = { username, displayName, id: ++incrementtalId };
     mockUsers.push(newUser)
     return newUser; 
