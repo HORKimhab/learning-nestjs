@@ -1,11 +1,11 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserSettingsResolver } from './graphsql/resolvers/UserSettingsResolver';
-import { UserResolver } from './graphsql/resolvers/UserResolver';
+import { UserResolver } from './users/UserResolver';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { User } from './graphsql/models/User';
 import { UserSetting } from './graphsql/models/UserSetting';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -25,8 +25,10 @@ import { UserSetting } from './graphsql/models/UserSetting';
       entities: [User, UserSetting], 
       synchronize: true,
     }),
+    UsersModule
   ],
   controllers: [],
-  providers: [UserResolver, UserSettingsResolver],
+  providers: [UserResolver],
+  // providers: [UserResolver, UserSettingsResolver],
 })
 export class AppModule {}

@@ -7,11 +7,11 @@ import {
   ResolveField,
   Resolver,
 } from '@nestjs/graphql';
-import { User } from '../models/User';
+import { User } from '../graphsql/models/User';
 import { mockUsers } from 'src/__mocks__/mockUsers';
-import { UserSetting } from '../models/UserSetting';
+import { UserSetting } from '../graphsql/models/UserSetting';
 import { mockUserSettings } from 'src/__mocks__/mockUserSettings';
-import { CreateUserInput } from '../utils/CreateUserInput';
+import { CreateUserInput } from '../graphsql/utils/CreateUserInput';
 
 export let incrementtalId = 3;
 @Resolver(() => User)
