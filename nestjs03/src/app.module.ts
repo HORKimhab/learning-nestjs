@@ -28,7 +28,8 @@ import { UsersModule } from './users/users.module';
     UsersModule
   ],
   controllers: [],
-  providers: [UserResolver],
+  // providers: [UserResolver],
+  providers: [],
   // providers: [UserResolver, UserSettingsResolver],
 })
 export class AppModule {}

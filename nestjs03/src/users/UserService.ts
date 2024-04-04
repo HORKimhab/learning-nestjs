@@ -6,8 +6,10 @@ import { Repository } from "typeorm";
 @Injectable()
 export class UserService {
     constructor(
-        @InjectRepository(User) private userRepository: Repository<User>,
-    ) {
-        
-    }
+        @InjectRepository(User) private usersRepository: Repository<User>,
+    ) {}
+
+    getUsers() {
+        return this.usersRepository.find({ relations: ['settings'] });
+      }
 }

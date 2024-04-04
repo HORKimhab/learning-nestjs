@@ -1,3 +1,4 @@
+import { UserService } from './UserService';
 import {
   Args,
   Int,
@@ -12,10 +13,20 @@ import { mockUsers } from 'src/__mocks__/mockUsers';
 import { UserSetting } from '../graphsql/models/UserSetting';
 import { mockUserSettings } from 'src/__mocks__/mockUserSettings';
 import { CreateUserInput } from '../graphsql/utils/CreateUserInput';
+import { Inject } from '@nestjs/common';
 
 export let incrementtalId = 3;
 @Resolver(() => User)
 export class UserResolver {
+
+  // constructor(@Inject(UserService) private userService: UserService) {}
+  // constructor(private userService: UserService) {}
+
+  constructor(
+    private userService: UserService,
+    // private userSettingService: UserSettingService,
+  ) {}
+
   @Query(() => User)
   getUser() {
     return {
@@ -32,7 +43,8 @@ export class UserResolver {
 
   @Query(() => [User])
   getUsers() {
-    return mockUsers;
+    // return mockUsers;
+    return this.userService.getUsers(); 
   }
 
   @ResolveField(() => UserSetting, { name: 'settings', nullable: true })
