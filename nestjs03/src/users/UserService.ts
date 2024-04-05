@@ -1,3 +1,4 @@
+import { CreateUserInput } from './../graphsql/utils/CreateUserInput';
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "src/graphsql/models/User";
@@ -11,5 +12,15 @@ export class UserService {
 
     getUsers() {
         return this.usersRepository.find({ relations: ['settings'] });
-      }
+    }
+
+    createUser(createUserData: CreateUserInput) {
+        const newUser = this.usersRepository.create(createUserData);
+        return this.usersRepository.save(newUser);
+    }
+
+    getUserById(id: number) {
+        return this.usersRepository.findOneBy({ id });
+    }
+
 }

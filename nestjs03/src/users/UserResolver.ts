@@ -38,7 +38,8 @@ export class UserResolver {
 
   @Query(() => User, { nullable: true })
   async getUserById(@Args('id', { type: () => Int }) id: number) {
-    return mockUsers.find((user) => user.id === id);
+    // return mockUsers.find((user) => user.id === id);
+    return this.userService.getUserById(id);
   }
 
   @Query(() => [User])
@@ -59,9 +60,11 @@ export class UserResolver {
   //   @Args('username') username: string,
   //   @Args('displayName', { nullable: true}) displayName: string)
   createUser(@Args('createUserData') createUserData: CreateUserInput) {
-    const { username, displayName } = createUserData;
-    const newUser = { username, displayName, id: ++incrementtalId };
-    mockUsers.push(newUser);
-    return newUser;
+    // const { username, displayName } = createUserData;
+    // const newUser = { username, displayName, id: ++incrementtalId };
+    // mockUsers.push(newUser);
+    // return newUser;
+
+    return this.userService.createUser(createUserData);
   }
 }
