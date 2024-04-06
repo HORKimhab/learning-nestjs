@@ -1,5 +1,5 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserResolver } from './users/UserResolver';
+// import { UserResolver } from './users/UserResolver';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -13,19 +13,20 @@ import { UsersModule } from './users/users.module';
       driver: ApolloDriver,
       autoSchemaFile: 'src/schema.ggl',
     }),
-    // Register TypeOrmModule 
+    // Register TypeOrmModule
     TypeOrmModule.forRoot({
-      type: 'mysql', 
-      host: 'localhost', 
-      port: 3306, 
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
       username: 'root',
-      password: '', 
-      database: 'nestjs_mysql_tutorial_nestjs03', 
-      // entities: [User, Profile, Post], 
-      entities: [User, UserSetting], 
+      password: '',
+      database: 'nestjs_mysql_tutorial_nestjs03',
+      // entities: [User, Profile, Post],
+      entities: [User, UserSetting],
       synchronize: true,
+      logging: true,
     }),
-    UsersModule
+    UsersModule,
   ],
   controllers: [],
   // providers: [UserResolver],

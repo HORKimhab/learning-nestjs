@@ -1,30 +1,30 @@
+import { UserSettingService } from './UserSettingService';
 import { UserService } from './UserService';
 import {
   Args,
   Int,
   Mutation,
-  Parent,
+  // Parent,
   Query,
-  ResolveField,
+  // ResolveField,
   Resolver,
 } from '@nestjs/graphql';
 import { User } from '../graphsql/models/User';
-import { mockUsers } from 'src/__mocks__/mockUsers';
-import { UserSetting } from '../graphsql/models/UserSetting';
-import { mockUserSettings } from 'src/__mocks__/mockUserSettings';
+// import { mockUsers } from 'src/__mocks__/mockUsers';
+// import { UserSetting } from '../graphsql/models/UserSetting';
+// import { mockUserSettings } from 'src/__mocks__/mockUserSettings';
 import { CreateUserInput } from '../graphsql/utils/CreateUserInput';
-import { Inject } from '@nestjs/common';
+// import { Inject } from '@nestjs/common';
 
-export let incrementtalId = 3;
+export const incrementtalId = 3;
 @Resolver(() => User)
 export class UserResolver {
-
   // constructor(@Inject(UserService) private userService: UserService) {}
   // constructor(private userService: UserService) {}
 
   constructor(
     private userService: UserService,
-    // private userSettingService: UserSettingService,
+    private userSettingService: UserSettingService,
   ) {}
 
   @Query(() => User)
@@ -45,13 +45,14 @@ export class UserResolver {
   @Query(() => [User])
   getUsers() {
     // return mockUsers;
-    return this.userService.getUsers(); 
+    return this.userService.getUsers();
   }
 
-  @ResolveField(() => UserSetting, { name: 'settings', nullable: true })
-  getUserSettings(@Parent() user: User) {
-    return mockUserSettings.find((setting) => setting.userId === user.id);
-  }
+  // @ResolveField(() => UserSetting, { name: 'settings', nullable: true })
+  // getUserSettings(@Parent() user: User) {
+  // return mockUserSettings.find((setting) => setting.userId === user.id);
+  // return this.userSettingService.getUserSettingById(user.id);
+  // }
 
   @Mutation(() => User)
 
