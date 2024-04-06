@@ -7,7 +7,7 @@ Resource:
 - https://www.youtube.com/watch?v=xzu3QXwo1BU&list=PL_cUvD4qzbkw-phjGK2qq0nQiG6gw1cKK | `Status`: Processing
     - https://youtu.be/xzu3QXwo1BU?si=9fFRxH_O_7abHyGn | `Status`: Done
     - https://youtu.be/W1gvIw0GNl8?si=ajTbwR4j5wVwNs-c | `Status`: Done
-    - https://youtu.be/CSfZmyzQAG8?si=4ydGxMXATv8xycVJ | `Status`: Processing
+    - https://youtu.be/CSfZmyzQAG8?si=4ydGxMXATv8xycVJ | `Status`: Done
 - https://www.youtube.com/watch?v=8_X0nSrzrCw
 - https://www.udemy.com/course/master-nestjs-the-javascript-nodejs-framework
 - https://www.udemy.com/course/nestjs-the-complete-developers-guide
