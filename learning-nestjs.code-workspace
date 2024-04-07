@@ -14,7 +14,8 @@
 			"aaron-bond.better-comments",
 			"donjayamanne.githistory",
 			"imgildev.vscode-nestjs-snippets-extension",
-			"graphql.vscode-graphql"
+			"graphql.vscode-graphql",
+			"ms-azuretools.vscode-docker"
 		]
 	}
 }
