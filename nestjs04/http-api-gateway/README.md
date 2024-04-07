@@ -2,7 +2,7 @@
 
 ## Resource
 
-- Project Name: `nestjs04`
+- Project Name: `http-api-gateway`
 - Description: Learn `Micrservice`, `NATS`, `SQL` and `Docker` 
 - Title: Nest.js Microservices with NATS, SQL and Docker
 
