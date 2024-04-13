@@ -6,6 +6,8 @@ async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   // await app.listen(3000);
 
+  console.log('User microservice is running...')
+
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
