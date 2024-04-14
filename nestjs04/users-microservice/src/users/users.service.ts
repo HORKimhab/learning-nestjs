@@ -12,4 +12,11 @@ export class UsersService {
         const newUser = this.userRepo.create(createUserDto); 
         return this.userRepo.save(newUser);
     }
+
+    getUserById(userId: string){
+        return this.userRepo.findOne({ 
+            where: {id: userId}, 
+            relations: ['payments'] 
+        });
+    }
 }

@@ -3,7 +3,7 @@ import { DateEntity } from "./date.entity";
 import { PaymentEntity } from "./payment.entity";
 
 @Entity({ name: 'users' })
-export class User extends DateEntity {
+export class UserEntity extends DateEntity{
     @PrimaryGeneratedColumn('uuid')
     id: string; 
 
@@ -18,5 +18,5 @@ export class User extends DateEntity {
 
     @OneToMany(() => PaymentEntity, (payment) => payment.user)
     @JoinColumn()
-    payments: PaymentEntity[];
+    paymnets: PaymentEntity[];
 }

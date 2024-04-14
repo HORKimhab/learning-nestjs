@@ -16,7 +16,7 @@ export class PaymentsMicroserviceController {
 
         const newPayment = await this.paymentsService.createPayment(resPaymentDto);
 
-        this.natsclient.emit('paymentCreated', newPayment);
+        if(newPayment) this.natsclient.emit('paymentCreated', newPayment);
     }
 
 }
