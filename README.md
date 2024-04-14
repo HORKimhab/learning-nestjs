@@ -17,4 +17,7 @@ Resource:
 
 - Learn Next: https://youtu.be/W1gvIw0GNl8?si=L18qP8K0JjMB-tW4
 
+- TODO
+    - https://github.com/nestjsx/crud
+
 #### Note: nestjssame45

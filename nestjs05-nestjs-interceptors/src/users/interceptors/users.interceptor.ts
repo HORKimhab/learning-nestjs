@@ -1,6 +1,7 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
 import { Observable, map } from 'rxjs';
 import { User } from '../user';
+import { plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class UsersInterceptor implements NestInterceptor {
@@ -9,6 +10,7 @@ export class UsersInterceptor implements NestInterceptor {
         next: CallHandler<User[]>
     ): Observable<any> | Promise<Observable<any>> {
         console.log(context.getClass().name);
-        return next.handle().pipe(map((data) => data.map(({password, ...user }) => user)));
+        // return next.handle().pipe(map((data) => data.map(({password, ...user }) => user)));
+        return next.handle().pipe(map((data) => data.map((user) => plainToInstance(User, user))));
     }
 }
