@@ -1,6 +1,7 @@
 import { CustomersService } from 'src/customers/services/customers/customers.service';
-import { Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Req, Res } from '@nestjs/common';
 import { Response } from 'express';
+import { CreateCustomerDto } from 'src/customers/typeorm/create.customer.dto';
 
 @Controller('customers')
 export class CustomersController {
@@ -27,5 +28,22 @@ export class CustomersController {
         const customer = this.customerService.findCustomer(id); 
         if(customer) return customer; 
         else throw new HttpException('Customer not found!', HttpStatus.BAD_GATEWAY);
+    }
+
+    @Get('')
+    getAllCustomers() {
+        return this.customerService.getAllCustomers(); 
+    }
+
+    @Post('create')
+    createCustomer(@Body() inputCustomerDto: CreateCustomerDto){
+        // console.log({createdAt: new Date(), ...inputCustomerDto});
+
+        const newCustomer = {
+            createdAt: new Date(), 
+            ...inputCustomerDto
+        };
+
+        this.customerService.createCustomer(newCustomer);
     }
 }
