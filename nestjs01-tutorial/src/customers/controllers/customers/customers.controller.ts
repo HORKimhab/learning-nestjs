@@ -1,5 +1,5 @@
 import { CustomersService } from 'src/customers/services/customers/customers.service';
-import { Body, Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Req, Res, UsePipes, ValidationPipe } from '@nestjs/common';
 import { Response } from 'express';
 import { CreateCustomerDto } from 'src/customers/typeorm/create.customer.dto';
 
@@ -36,12 +36,13 @@ export class CustomersController {
     }
 
     @Post('create')
+    @UsePipes(ValidationPipe)
     createCustomer(@Body() inputCustomerDto: CreateCustomerDto){
         // console.log({createdAt: new Date(), ...inputCustomerDto});
 
         const newCustomer = {
+            ...inputCustomerDto,
             createdAt: new Date(), 
-            ...inputCustomerDto
         };
 
         this.customerService.createCustomer(newCustomer);
