@@ -39,3 +39,11 @@ $ yarn run test:e2e
 # test coverage
 $ yarn run test:cov
 ```
+
+```bash
+# Run project with docker
+$ docker-compose up --build
+
+# Stop, remove cahe and start
+$ docker-compose down && docker-compose up --build 
+```
