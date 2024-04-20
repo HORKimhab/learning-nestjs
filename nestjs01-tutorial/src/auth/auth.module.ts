@@ -6,7 +6,7 @@ import { UsersService } from 'src/users/services/users/users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/typeorm';
 import { PassportModule } from '@nestjs/passport';
-import { LocalStrategy } from './uttils/LocalStrategy';
+import { LocalStrategy } from './utilis/LocalStrategy';
 
 @Module({
     imports: [TypeOrmModule.forFeature([User]), PassportModule],
