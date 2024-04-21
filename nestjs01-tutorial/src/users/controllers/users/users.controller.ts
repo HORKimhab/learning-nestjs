@@ -1,6 +1,7 @@
 import { Body, ClassSerializerInterceptor, Controller, Get, HttpException, 
-    HttpStatus, Inject, Param, ParseIntPipe, Post, UseFilters, UseInterceptors, 
+    HttpStatus, Inject, Param, ParseIntPipe, Post, UseFilters, UseGuards, UseInterceptors, 
     UsePipes, ValidationPipe } from '@nestjs/common';
+import { AuthenticatedGuard } from 'src/auth/utilis/LocalGuard';
 import { CreateUserDto } from 'src/users/dto/CreateUser.dto';
 import { UserNotFoundException } from 'src/users/exceptions/UserNotFound.exception';
 import { HttpExceptionFilter } from 'src/users/filters/HttpException.filter';
@@ -15,6 +16,7 @@ export class UsersController {
         private readonly userService: UsersService
     ) {}
 
+    @UseGuards(AuthenticatedGuard)
     @UseInterceptors(ClassSerializerInterceptor)
     @Get('')
     getUsers() {
@@ -32,8 +34,8 @@ export class UsersController {
     @UseInterceptors(ClassSerializerInterceptor)
     @UseFilters(HttpExceptionFilter)
     @Get('id/:id')
-    findUserById(@Param('id', ParseIntPipe) id: number) {
-        const findUser = this.userService.findUserById(id);
+    async findUserById(@Param('id', ParseIntPipe) id: number) {
+        const findUser = await this.userService.findUserById(id);
         if (findUser) return new SerializedUser(findUser);
         else {
             // throw new UserNotFoundException();

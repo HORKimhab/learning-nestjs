@@ -7,9 +7,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/typeorm';
 import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from './utilis/LocalStrategy';
+import { SessionSerializer } from './utilis/SessionSerializer';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([User]), PassportModule],
+    imports: [
+        TypeOrmModule.forFeature([User])
+    ],
     controllers: [AuthController],
     providers: [
         {
@@ -20,7 +23,8 @@ import { LocalStrategy } from './utilis/LocalStrategy';
             provide: 'USER_SERVICE',
             useClass: UsersService
         }, 
-        LocalStrategy
+        LocalStrategy, 
+        SessionSerializer
     ]
 })
 export class AuthModule {}

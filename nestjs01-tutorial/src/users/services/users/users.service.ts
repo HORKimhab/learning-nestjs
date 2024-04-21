@@ -48,9 +48,9 @@ export class UsersService {
         return this.users.find((user) => user.username === username);
     }
 
-    findUserById(id: number) {
-        return this.users.find((user) => user.id === id);
-    }
+    // findUserById(id: number) {
+    //     return this.users.find((user) => user.id === id);
+    // }
 
     createUser(reqUserDto: CreateUserDto){
         const password = hashPassword(reqUserDto.password)
@@ -62,6 +62,12 @@ export class UsersService {
         return this.userRepository.findOne({ 
             where: { username },
          });
+    }
+
+    findUserById(id: number){
+        return this.userRepository.findOne({
+            where: { id }
+        });
     }
 }
 

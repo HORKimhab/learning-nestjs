@@ -4,6 +4,7 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import entities from './typeorm';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
@@ -19,7 +20,12 @@ import entities from './typeorm';
       synchronize: true,
       username: 'root',
       password: ''
-    }), AuthModule],
+    }), 
+    AuthModule, 
+    PassportModule.register({
+      session: true,
+    }),
+  ],
   controllers: [],
   providers: [],
 })
