@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import entities from './typeorm';
 import { PassportModule } from '@nestjs/passport';
+import { DataSource } from 'typeorm';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { PassportModule } from '@nestjs/passport';
       // host: 'mysql_db', // For mysql in docker
       port: 3306,
       database: 'nestjs_01_tutorial', 
-      entities, 
+      entities,
       synchronize: true,
       username: 'root',
       password: ''
@@ -29,4 +30,6 @@ import { PassportModule } from '@nestjs/passport';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {}
+}
