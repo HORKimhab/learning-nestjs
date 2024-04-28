@@ -18,5 +18,7 @@ Resource:
 
 - TODO
     - https://github.com/nestjsx/crud
+    - Auth and Authzorization with: https://github.com/HaiderMalik12/nestjs-fundamentals/tree/main/module-07-authetication-and-authorization 
+    - Implement it with nestjs/crud: https://github.com/nestjsx/crud
 
 #### Note: nestjssame45
