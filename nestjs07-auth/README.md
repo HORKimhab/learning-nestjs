@@ -39,3 +39,5 @@ $ yarn run test:e2e
 # test coverage
 $ yarn run test:cov
 ```
+
+- setup nestjsx\crud | crud nestjsx with pacakge | nestjs crud | crud nestjs with pacakage 
