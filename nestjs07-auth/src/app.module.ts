@@ -5,18 +5,31 @@ import { SongsModule } from './songs/songs.module';
 import { CompaniesModule } from './company/company.module';
 import { join } from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PostModule } from './post/post.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
-    type: 'mysql', 
-    host: 'localhost', 
-    port: 3306, 
+    // type: 'mysql', 
+    // host: 'localhost', 
+    // port: 3306, 
+    // username: 'root',
+    // password: '', 
+    // database: 'nestjs07_auth', 
+    // entities: [join(__dirname, './**/*.entity{.ts,.js}')],
+    // synchronize: true,
+    type: 'mysql',
+    host: 'localhost',
+    port: 3306,
     username: 'root',
-    password: '', 
-    database: 'nestjs07_auth', 
-    entities: [join(__dirname, './**/*.entity{.ts,.js}')],
-    synchronize: true,
-  }), SongsModule, CompaniesModule],
+    password: '',
+    database: 'nestjs07_auth',
+    retryAttempts: 10,
+    retryDelay: 3000,
+    entities: [__dirname + '/**/*.entity.ts'],
+    autoLoadEntities: true,
+    synchronize: false,
+  }), SongsModule, CompaniesModule, PostModule, UserModule],
   controllers: [AppController],
   providers: [AppService],
 })

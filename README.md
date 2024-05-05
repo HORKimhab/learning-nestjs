@@ -22,5 +22,9 @@ Resource:
     - Implement it with nestjs/crud: https://github.com/nestjsx/crud
     - Seed and Migration
         - https://www.youtube.com/watch?v=9MGKKJTwicM
+        - https://dev.to/imgildev/automatizando-la-generacion-de-datos-ficticios-con-seed-factory-faker-y-typeorm-en-nestjs-5fpc 
+            - https://github.com/ManuelGil/nest-typeorm-seed-example (Not Work)
+        - https://thriveread.com/typeorm-nestjs-migrations | https://github.com/kimkimani/typeorm-nestjs-migrations
+- npx prettier --write . "Fix: Delete `␍`eslintprettier/prettier fix it " 
 
 #### Note: nestjssame45
