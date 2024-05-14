@@ -1,3 +1,4 @@
+// import { DateEntity } from 'src/date.entity';
 import { Post } from 'src/post/entities/post.entity';
 import {
   Column,
@@ -112,6 +113,7 @@ export class User {
     default: null,
   })
   deletedAt: Date;
+  
 
   @OneToMany(() => Post, (post) => post.user)
   posts: Post;

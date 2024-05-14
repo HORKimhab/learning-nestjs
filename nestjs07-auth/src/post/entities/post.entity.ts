@@ -1,4 +1,5 @@
 import { User } from 'src/user/entities/user.entity';
+import { DateEntity } from 'src/utils/date.entity';
 import {
   Column,
   CreateDateColumn,
@@ -11,7 +12,7 @@ import {
 } from 'typeorm';
 
 @Entity('posts')
-export class Post {
+export class Post extends DateEntity{
   @PrimaryGeneratedColumn()
   id: number;
 

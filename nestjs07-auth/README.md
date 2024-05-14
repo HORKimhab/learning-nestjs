@@ -41,4 +41,14 @@ $ yarn run test:cov
 ```
 
 - setup nestjsx\crud | crud nestjsx with pacakge | nestjs crud | crud nestjs with pacakage 
-- yarn run mig-gen -- database/migrations/{Name}
+- yarn run mig-gen database/migrations/{Name}
+
+
+## seed-referesh
+
+```bash
+# Delete all tables in mysql manually
+```
+
+### ToDO 
+- Check dateEntity 
