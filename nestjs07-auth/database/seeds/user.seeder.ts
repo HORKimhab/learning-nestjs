@@ -32,6 +32,6 @@ export default class UserSeeder implements Seeder {
     await userFactory.save();
 
     // Insert many records in database.
-    await userFactory.saveMany(40);
+    await userFactory.saveMany(20);
   }
 }

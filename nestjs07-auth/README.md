@@ -50,5 +50,13 @@ $ yarn run test:cov
 # Delete all tables in mysql manually
 ```
 
+
+### Drop all tables from database
+```bash
+  "drop-db": "npm run typeorm schema:drop", 
+```
+
+
+
 ### ToDO 
 - Check dateEntity 

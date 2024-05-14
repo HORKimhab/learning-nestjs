@@ -6,10 +6,10 @@ import { User, UserRole } from 'src/user/entities/user.entity';
 export default setSeederFactory(User, async (faker) => {
   const user = new User();
 
-  user.firstName = faker.name.firstName();
-  user.lastName = faker.name.lastName();
-  user.userName = faker.internet.userName(user.firstName, user.lastName);
-  user.email = faker.internet.email(user.firstName, user.lastName);
+  user.firstName = faker.person.firstName();
+  user.lastName = faker.person.lastName();
+  user.userName = faker.person.fullName({firstName: user.firstName, lastName: user.lastName});
+  user.email = faker.internet.email({ firstName: user.firstName, lastName: user.lastName }) 
   user.password = await hash(faker.internet.password(), 10);
   user.phone = faker.phone.number();
   user.avatar = faker.image.avatar();
@@ -17,6 +17,7 @@ export default setSeederFactory(User, async (faker) => {
     UserRole.ADMIN,
     UserRole.EDITOR,
     UserRole.GHOST,
+    UserRole.VIEWER,
   ]);
   user.isActivated = faker.datatype.boolean();
 
