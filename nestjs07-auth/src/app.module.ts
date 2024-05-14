@@ -7,6 +7,7 @@ import { join } from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostModule } from './post/post.module';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -29,7 +30,7 @@ import { UserModule } from './user/user.module';
     entities: [__dirname + '/**/*.entity.ts'],
     autoLoadEntities: true,
     synchronize: false,
-  }), SongsModule, CompaniesModule, PostModule, UserModule],
+  }), SongsModule, CompaniesModule, PostModule, UserModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })

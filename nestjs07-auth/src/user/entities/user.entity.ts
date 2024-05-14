@@ -1,4 +1,5 @@
 // import { DateEntity } from 'src/date.entity';
+import { Exclude } from 'class-transformer';
 import { Post } from 'src/post/entities/post.entity';
 import {
   Column,
@@ -14,6 +15,7 @@ export enum UserRole {
   ADMIN = 'admin',
   EDITOR = 'editor',
   GHOST = 'ghost',
+  VIEWER = 'viewer',
 }
 
 @Entity('users')
@@ -43,15 +45,15 @@ export class User {
     name: 'user_name',
     type: 'varchar',
     length: 100,
-    unique: true,
   })
   userName: string;
 
   @Column({
     type: 'varchar',
-    length: 320,
+    length: 255,
     nullable: true,
     default: null,
+    unique: true,
   })
   email: string;
 
@@ -60,6 +62,7 @@ export class User {
     length: 255,
     select: false,
   })
+  @Exclude()
   password: string;
 
   @Column({
@@ -81,7 +84,7 @@ export class User {
   @Column({
     type: 'enum',
     enum: UserRole,
-    default: UserRole.GHOST,
+    default: UserRole.EDITOR,
   })
   role: UserRole;
 
