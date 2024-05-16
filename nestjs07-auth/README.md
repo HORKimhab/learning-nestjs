@@ -56,6 +56,7 @@ $ yarn run test:cov
   "drop-db": "npm run typeorm schema:drop", 
 ```
 
+# Start next here: https://youtu.be/sFnAHC9lLaw?t=12082
 
 
 ### ToDO 
