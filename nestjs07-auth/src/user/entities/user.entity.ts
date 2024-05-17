@@ -60,9 +60,8 @@ export class User {
   @Column({
     type: 'varchar',
     length: 255,
-    select: false,
   })
-  @Exclude()
+  @Exclude({ toPlainOnly: true })
   password: string;
 
   @Column({

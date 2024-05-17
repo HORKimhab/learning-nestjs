@@ -12,7 +12,8 @@ export default class UserSeeder implements Seeder {
 
     const data = {
       userName: 'admin',
-      password: await hash('admin', 10),
+      email: 'admin.admin@gmail.com',
+      password: await hash('password', 10),
       role: UserRole.ADMIN,
       isActivated: true,
     };

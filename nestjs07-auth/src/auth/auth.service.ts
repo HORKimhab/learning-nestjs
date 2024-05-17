@@ -12,18 +12,19 @@ export class AuthService {
         private jwtService: JwtService
     ) {}
 
-    async login(loginDTO: LoginDTO): Promise<{ accessToken: string }> {
+    async login(loginDTO: LoginDTO): Promise<unknown> {
         const user = await this.userService.findIdentifier(loginDTO); 
         const isPasswordMatched = await bcrypt.compare(loginDTO.password, user.password); 
 
         if(isPasswordMatched) {
             delete user.password; 
             const payload = { email: user.email, sub: user.id }; 
-            const jwtPayload = {
-                accessToken: this.jwtService.sign(payload)
+            const userPayloadJWT = {
+                user: { ...user },
+                accessToken: this.jwtService.sign(payload), 
             }
             
-            return jwtPayload; 
+            return userPayloadJWT; 
         } else {
             throw new UnauthorizedException('Email and Password is incorret.')
         }
